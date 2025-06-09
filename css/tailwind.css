@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #2D5016; /* Deep agricultural authority */
+  --color-primary-50: #F4F7F1;
+  --color-primary-100: #E8F0E2;
+  --color-primary-200: #D1E1C5;
+  --color-primary-300: #BAD2A8;
+  --color-primary-400: #A3C38B;
+  --color-primary-500: #8CB46E;
+  --color-primary-600: #6B8F51;
+  --color-primary-700: #4A6A34;
+  --color-primary-800: #2D5016;
+  --color-primary-900: #1A3009;
+
+  /* Secondary Colors */
+  --color-secondary: #4A7C59; /* Growth-focused optimism */
+  --color-secondary-50: #F5F9F6;
+  --color-secondary-100: #EBF3ED;
+  --color-secondary-200: #D7E7DB;
+  --color-secondary-300: #C3DBC9;
+  --color-secondary-400: #AFCFB7;
+  --color-secondary-500: #9BC3A5;
+  --color-secondary-600: #7BA083;
+  --color-secondary-700: #5B7D61;
+  --color-secondary-800: #4A7C59;
+  --color-secondary-900: #2F4F37;
+
+  /* Accent Colors */
+  --color-accent: #FFB000; /* Genetic breakthrough moments */
+  --color-accent-50: #FFFBF0;
+  --color-accent-100: #FFF7E0;
+  --color-accent-200: #FFEFC2;
+  --color-accent-300: #FFE7A3;
+  --color-accent-400: #FFDF85;
+  --color-accent-500: #FFD766;
+  --color-accent-600: #FFCF47;
+  --color-accent-700: #FFC729;
+  --color-accent-800: #FFB000;
+  --color-accent-900: #E09900;
+
+  /* Background Colors */
+  --color-background: #FAFBF7; /* Clean laboratory canvas */
+  --color-surface: #F1F5F0; /* Gentle depth for data containers */
+
+  /* Text Colors */
+  --color-text-primary: #1A1D16; /* Extended reading with natural authority */
+  --color-text-secondary: #4A5D42; /* Clear hierarchy maintaining organic connection */
+
+  /* Status Colors */
+  --color-success: #22C55E; /* Positive growth - green-500 */
+  --color-success-50: #F0FDF4;
+  --color-success-100: #DCFCE7;
+  --color-success-200: #BBF7D0;
+  --color-success-300: #86EFAC;
+  --color-success-400: #4ADE80;
+  --color-success-500: #22C55E;
+  --color-success-600: #16A34A;
+  --color-success-700: #15803D;
+  --color-success-800: #166534;
+  --color-success-900: #14532D;
+
+  --color-warning: #F59E0B; /* Attention without alarm - amber-500 */
+  --color-warning-50: #FFFBEB;
+  --color-warning-100: #FEF3C7;
+  --color-warning-200: #FDE68A;
+  --color-warning-300: #FCD34D;
+  --color-warning-400: #FBBF24;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+  --color-warning-700: #B45309;
+  --color-warning-800: #92400E;
+  --color-warning-900: #78350F;
+
+  --color-error: #EF4444; /* Clear concern - red-500 */
+  --color-error-50: #FEF2F2;
+  --color-error-100: #FEE2E2;
+  --color-error-200: #FECACA;
+  --color-error-300: #FCA5A5;
+  --color-error-400: #F87171;
+  --color-error-500: #EF4444;
+  --color-error-600: #DC2626;
+  --color-error-700: #B91C1C;
+  --color-error-800: #991B1B;
+  --color-error-900: #7F1D1D;
+
+  /* Shadow Variables */
+  --shadow-subtle: 0 4px 12px rgba(45, 80, 22, 0.08);
+  --shadow-strong: 0 8px 24px rgba(45, 80, 22, 0.12);
+
+  /* Animation Variables */
+  --transition-fast: 300ms ease-out;
+  --transition-complex: 400ms ease-out;
+}
+
+@layer base {
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-inter font-semibold transition-all duration-300 hover:bg-primary-700 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-inter font-semibold transition-all duration-300 hover:bg-secondary-700 focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-primary px-6 py-3 rounded-lg font-inter font-semibold transition-all duration-300 hover:bg-accent-600 focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-white rounded-lg p-6 shadow-subtle transition-all duration-300 hover:shadow-strong;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300;
+  }
+
+  .molecular-pattern {
+    background-image: radial-gradient(circle at 25% 25%, rgba(74, 124, 89, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 75%, rgba(45, 80, 22, 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(45, 80, 22, 0.1);
+  }
+
+  .transition-fast {
+    transition: all var(--transition-fast);
+  }
+
+  .transition-complex {
+    transition: all var(--transition-complex);
+  }
+
+  .shadow-subtle {
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+}

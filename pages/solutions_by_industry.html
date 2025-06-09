@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions by Industry - CRISPRoots AgroTwin</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta name="description" content="Discover CRISPRoots AgroTwin's tailored solutions across agricultural sectors - from precision farming to research institutions, agtech investments to food corporations.">
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-secondary-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 20h16M20 12v16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="16" cy="16" r="2" fill="white"/>
+                        <circle cx="24" cy="24" r="2" fill="white"/>
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2D5016"/>
+                                <stop offset="100%" style="stop-color:#4A7C59"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="font-inter font-bold text-xl text-primary">CRISPRoots AgroTwin</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="homepage_quantum_landing_experience.html" class="text-text-secondary hover:text-primary transition-fast">Home</a>
+                    <a href="platform_overview_integrated_ecosystem.html" class="text-text-secondary hover:text-primary transition-fast">Platform</a>
+                    <a href="research_science_hub.html" class="text-text-secondary hover:text-primary transition-fast">Research</a>
+                    <a href="marketplace_exchange_blockchain_platform.html" class="text-text-secondary hover:text-primary transition-fast">Marketplace</a>
+                    <a href="impact_analytics_sustainability.html" class="text-text-secondary hover:text-primary transition-fast">Analytics</a>
+                    <a href="solutions_by_industry.html" class="text-primary font-semibold border-b-2 border-accent">Solutions</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <button class="btn-primary">Start Free Trial</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden" id="mobileMenu">
+            <div class="px-6 py-4 bg-white border-t border-secondary-200">
+                <div class="space-y-4">
+                    <a href="homepage_quantum_landing_experience.html" class="block text-text-secondary">Home</a>
+                    <a href="platform_overview_integrated_ecosystem.html" class="block text-text-secondary">Platform</a>
+                    <a href="research_science_hub.html" class="block text-text-secondary">Research</a>
+                    <a href="marketplace_exchange_blockchain_platform.html" class="block text-text-secondary">Marketplace</a>
+                    <a href="impact_analytics_sustainability.html" class="block text-text-secondary">Analytics</a>
+                    <a href="solutions_by_industry.html" class="block text-primary font-semibold">Solutions</a>
+                    <button class="btn-primary w-full mt-4">Start Free Trial</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-16 bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 molecular-pattern opacity-30"></div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <h1 class="text-5xl lg:text-6xl font-inter font-bold text-primary mb-6 text-shadow-sm">
+                Solutions by <span class="text-accent">Industry</span>
+            </h1>
+            <p class="text-xl lg:text-2xl text-text-secondary max-w-4xl mx-auto leading-relaxed mb-12">
+                Discover how CRISPRoots AgroTwin transforms agriculture across diverse sectors with 
+                tailored solutions for precision farming, research, investment, and food security.
+            </p>
+
+            <!-- Industry Selector -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="industry-tab active bg-primary text-white px-6 py-3 rounded-lg font-inter font-semibold transition-fast" data-industry="farming">
+                    Precision Farming
+                </button>
+                <button class="industry-tab bg-white text-primary border-2 border-primary px-6 py-3 rounded-lg font-inter font-semibold hover:bg-primary hover:text-white transition-fast" data-industry="research">
+                    Research Institutions
+                </button>
+                <button class="industry-tab bg-white text-primary border-2 border-primary px-6 py-3 rounded-lg font-inter font-semibold hover:bg-primary hover:text-white transition-fast" data-industry="investment">
+                    AgTech Investment
+                </button>
+                <button class="industry-tab bg-white text-primary border-2 border-primary px-6 py-3 rounded-lg font-inter font-semibold hover:bg-primary hover:text-white transition-fast" data-industry="corporate">
+                    Food Corporations
+                </button>
+                <button class="industry-tab bg-white text-primary border-2 border-primary px-6 py-3 rounded-lg font-inter font-semibold hover:bg-primary hover:text-white transition-fast" data-industry="government">
+                    Government Agencies
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Industry Content -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Precision Farming Content -->
+            <div id="farming-content" class="industry-content">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <div class="text-accent font-medium mb-4">PRECISION FARMING SOLUTIONS</div>
+                        <h2 class="text-4xl font-inter font-bold text-primary mb-6">
+                            Transform Your Farm with Digital Intelligence
+                        </h2>
+                        <p class="text-xl text-text-secondary mb-8">
+                            Leverage AI-driven crop monitoring, genetic optimization, and digital twin technology 
+                            to maximize yields while minimizing environmental impact.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>42% average yield increase</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>30% reduction in water usage</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>25% decrease in chemical inputs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl p-8">
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=600&auto=format&fit=crop" 
+                             alt="Precision farming technology" 
+                             class="w-full h-64 object-cover rounded-lg"
+                             onerror="this.src='https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=600'; this.onerror=null;">
+                    </div>
+                </div>
+
+                <!-- Farming Use Cases -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div class="card group hover:scale-105 transition-complex">
+                        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-inter font-semibold text-primary mb-3">Crop Monitoring</h3>
+                        <p class="text-text-secondary mb-4">Real-time disease detection and growth optimization through AI-powered satellite imagery analysis.</p>
+                        <div class="text-sm text-accent font-medium">ROI: 340% in first year</div>
+                    </div>
+
+                    <div class="card group hover:scale-105 transition-complex">
+                        <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-inter font-semibold text-secondary mb-3">Genetic Optimization</h3>
+                        <p class="text-text-secondary mb-4">CRISPR-enhanced seeds tailored to your specific soil conditions and climate patterns.</p>
+                        <div class="text-sm text-accent font-medium">Implementation: 6-8 months</div>
+                    </div>
+
+                    <div class="card group hover:scale-105 transition-complex">
+                        <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-inter font-semibold text-accent mb-3">Digital Twin Simulation</h3>
+                        <p class="text-text-secondary mb-4">Virtual farm modeling for scenario testing and optimization before implementation.</p>
+                        <div class="text-sm text-accent font-medium">Accuracy: 94% prediction rate</div>
+                    </div>
+                </div>
+
+                <!-- ROI Calculator -->
+                <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-inter font-bold text-primary mb-6 text-center">Calculate Your Farm's Potential</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-text-secondary mb-2">Farm Size (acres)</label>
+                            <input type="number" id="farmSize" class="input-field" placeholder="1000" value="1000">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-secondary mb-2">Current Yield (tons/acre)</label>
+                            <input type="number" id="currentYield" class="input-field" placeholder="3.5" value="3.5">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-secondary mb-2">Crop Price ($/ton)</label>
+                            <input type="number" id="cropPrice" class="input-field" placeholder="200" value="200">
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button onclick="calculateROI()" class="btn-primary">Calculate Potential Benefits</button>
+                        <div id="roiResults" class="mt-4 hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="bg-white rounded-lg p-4">
+                                    <div class="text-2xl font-bold text-success" id="additionalRevenue">$0</div>
+                                    <div class="text-sm text-text-secondary">Additional Annual Revenue</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <div class="text-2xl font-bold text-primary" id="waterSavings">$0</div>
+                                    <div class="text-sm text-text-secondary">Water Cost Savings</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <div class="text-2xl font-bold text-accent" id="totalROI">0%</div>
+                                    <div class="text-sm text-text-secondary">First Year ROI</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Institutions Content -->
+            <div id="research-content" class="industry-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <div class="text-secondary font-medium mb-4">RESEARCH COLLABORATION</div>
+                        <h2 class="text-4xl font-inter font-bold text-primary mb-6">
+                            Accelerate Agricultural Innovation
+                        </h2>
+                        <p class="text-xl text-text-secondary mb-8">
+                            Access quantum-enhanced CRISPR tools, collaborate globally, and publish 
+                            breakthrough research with our comprehensive scientific platform.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>89% faster gene editing cycles</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>45 university partnerships</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>127 peer-reviewed publications</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-secondary-50 to-accent-50 rounded-xl p-8">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=600&auto=format&fit=crop" 
+                             alt="Research laboratory" 
+                             class="w-full h-64 object-cover rounded-lg"
+                             onerror="this.src='https://images.pixabay.com/photo/2017/09/12/11/56/laboratory-2742913_1280.jpg'; this.onerror=null;">
+                    </div>
+                </div>
+
+                <!-- Research Features -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-secondary mb-4">Quantum CRISPR Platform</h3>
+                        <p class="text-text-secondary mb-4">Advanced gene editing tools with quantum computing acceleration for unprecedented precision and speed.</p>
+                        <ul class="space-y-2 text-sm text-text-secondary">
+                            <li>• Molecular visualization in 3D</li>
+                            <li>• AI-powered trait prediction</li>
+                            <li>• Automated protocol generation</li>
+                            <li>• Real-time collaboration tools</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-secondary mb-4">Grant Funding Support</h3>
+                        <p class="text-text-secondary mb-4">Access funding opportunities and streamlined application processes for agricultural research projects.</p>
+                        <ul class="space-y-2 text-sm text-text-secondary">
+                            <li>• $2.3M in grants secured</li>
+                            <li>• Automated proposal generation</li>
+                            <li>• Compliance tracking</li>
+                            <li>• Impact measurement tools</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-secondary mb-4">Global Collaboration Network</h3>
+                        <p class="text-text-secondary mb-4">Connect with researchers worldwide and share data securely through blockchain-verified protocols.</p>
+                        <ul class="space-y-2 text-sm text-text-secondary">
+                            <li>• 45 partner institutions</li>
+                            <li>• Secure data sharing</li>
+                            <li>• Joint publication tools</li>
+                            <li>• Virtual lab access</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-secondary mb-4">Publication & IP Management</h3>
+                        <p class="text-text-secondary mb-4">Streamlined publishing workflow with automated citation tracking and intellectual property protection.</p>
+                        <ul class="space-y-2 text-sm text-text-secondary">
+                            <li>• Automated manuscript formatting</li>
+                            <li>• Patent application support</li>
+                            <li>• Citation impact tracking</li>
+                            <li>• Licensing opportunity alerts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investment Content -->
+            <div id="investment-content" class="industry-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <div class="text-accent font-medium mb-4">AGTECH INVESTMENT OPPORTUNITIES</div>
+                        <h2 class="text-4xl font-inter font-bold text-primary mb-6">
+                            Invest in the Future of Food
+                        </h2>
+                        <p class="text-xl text-text-secondary mb-8">
+                            Discover high-growth opportunities in agricultural technology with detailed 
+                            market analysis, portfolio tracking, and investment performance metrics.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>$847M market opportunity</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>23% average annual returns</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>156 portfolio companies</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-accent-50 to-primary-50 rounded-xl p-8">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" 
+                             alt="Investment analytics dashboard" 
+                             class="w-full h-64 object-cover rounded-lg"
+                             onerror="this.src='https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600'; this.onerror=null;">
+                    </div>
+                </div>
+
+                <!-- Investment Metrics -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+                    <div class="bg-white rounded-xl p-6 shadow-subtle text-center">
+                        <div class="text-3xl font-inter font-bold text-primary mb-2">$2.3B</div>
+                        <div class="text-text-secondary">Total Market Value</div>
+                        <div class="text-sm text-success mt-1">+34% YoY growth</div>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-subtle text-center">
+                        <div class="text-3xl font-inter font-bold text-secondary mb-2">156</div>
+                        <div class="text-text-secondary">Portfolio Companies</div>
+                        <div class="text-sm text-success mt-1">+28 this quarter</div>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-subtle text-center">
+                        <div class="text-3xl font-inter font-bold text-accent mb-2">23%</div>
+                        <div class="text-text-secondary">Average Returns</div>
+                        <div class="text-sm text-success mt-1">Above market avg</div>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-subtle text-center">
+                        <div class="text-3xl font-inter font-bold text-success mb-2">94%</div>
+                        <div class="text-text-secondary">Success Rate</div>
+                        <div class="text-sm text-success mt-1">Industry leading</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corporate Content -->
+            <div id="corporate-content" class="industry-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <div class="text-primary font-medium mb-4">FOOD CORPORATION SOLUTIONS</div>
+                        <h2 class="text-4xl font-inter font-bold text-primary mb-6">
+                            Optimize Your Supply Chain
+                        </h2>
+                        <p class="text-xl text-text-secondary mb-8">
+                            Enhance product development, ensure supply chain sustainability, and access 
+                            genetic trait licensing for next-generation food products.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>47% supply chain efficiency gain</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>62% reduction in waste</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>38% faster product development</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-primary-50 to-accent-50 rounded-xl p-8">
+                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=600&auto=format&fit=crop" 
+                             alt="Food supply chain" 
+                             class="w-full h-64 object-cover rounded-lg"
+                             onerror="this.src='https://images.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg'; this.onerror=null;">
+                    </div>
+                </div>
+
+                <!-- Corporate Solutions -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-primary mb-4">Supply Chain Optimization</h3>
+                        <p class="text-text-secondary mb-4">End-to-end visibility and optimization of agricultural supply chains with predictive analytics.</p>
+                        <div class="text-sm text-accent font-medium">47% efficiency improvement</div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-primary mb-4">Genetic Trait Licensing</h3>
+                        <p class="text-text-secondary mb-4">Access premium genetic modifications for enhanced nutrition, shelf life, and consumer appeal.</p>
+                        <div class="text-sm text-accent font-medium">200+ available traits</div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-primary mb-4">Sustainability Reporting</h3>
+                        <p class="text-text-secondary mb-4">Comprehensive ESG metrics and carbon footprint tracking for corporate sustainability goals.</p>
+                        <div class="text-sm text-accent font-medium">ISO 14001 compliant</div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-primary mb-4">Product Development</h3>
+                        <p class="text-text-secondary mb-4">Accelerated R&D with AI-powered ingredient optimization and consumer preference analysis.</p>
+                        <div class="text-sm text-accent font-medium">38% faster time-to-market</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Government Content -->
+            <div id="government-content" class="industry-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <div class="text-secondary font-medium mb-4">GOVERNMENT & POLICY SOLUTIONS</div>
+                        <h2 class="text-4xl font-inter font-bold text-primary mb-6">
+                            Secure National Food Systems
+                        </h2>
+                        <p class="text-xl text-text-secondary mb-8">
+                            Implement comprehensive food security planning, regulatory compliance frameworks, 
+                            and national agricultural optimization strategies.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>National food security planning</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Regulatory compliance automation</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Climate adaptation strategies</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-secondary-50 to-primary-50 rounded-xl p-8">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600&auto=format&fit=crop" 
+                             alt="Government agriculture planning" 
+                             class="w-full h-64 object-cover rounded-lg"
+                             onerror="this.src='https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=600'; this.onerror=null;">
+                    </div>
+                </div>
+
+                <!-- Government Features -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-secondary mb-4">Policy Framework</h3>
+                        <p class="text-text-secondary mb-4">Comprehensive regulatory guidelines for genetic modification and sustainable agriculture implementation.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-secondary mb-4">National Planning</h3>
+                        <p class="text-text-secondary mb-4">Strategic food security planning with climate change adaptation and population growth projections.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-secondary mb-4">Compliance Monitoring</h3>
+                        <p class="text-text-secondary mb-4">Automated tracking and reporting systems for agricultural regulations and environmental standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Examples -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-inter font-bold text-primary mb-6">
+                    Seamless System Integration
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    CRISPRoots AgroTwin connects with your existing agricultural systems, 
+                    ERP platforms, and regulatory databases for unified operations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-subtle text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-inter font-semibold text-primary mb-2">Farm Management</h3>
+                    <p class="text-sm text-text-secondary">John Deere, Case IH, New Holland</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-subtle text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-inter font-semibold text-secondary mb-2">ERP Systems</h3>
+                    <p class="text-sm text-text-secondary">SAP, Oracle, Microsoft Dynamics</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-subtle text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-inter font-semibold text-accent mb-2">Weather Data</h3>
+                    <p class="text-sm text-text-secondary">NOAA, Weather Underground, AccuWeather</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-subtle text-center">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-inter font-semibold text-success mb-2">Regulatory</h3>
+                    <p class="text-sm text-text-secondary">USDA, FDA, EPA databases</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-br from-primary-900 to-secondary-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-inter font-bold mb-6">
+                Ready to Transform Your Industry?
+            </h2>
+            <p class="text-xl text-primary-100 max-w-3xl mx-auto mb-12">
+                Join thousands of organizations already leveraging CRISPRoots AgroTwin 
+                to revolutionize their agricultural operations and drive sustainable growth.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-accent text-lg px-8 py-4">Schedule Demo</button>
+                <button class="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-lg font-inter font-semibold hover:bg-white/20 transition-fast">
+                    Download Brochure
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" fill="url(#footerLogoGradient)" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 20h16M20 12v16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="16" cy="16" r="2" fill="white"/>
+                            <circle cx="24" cy="24" r="2" fill="white"/>
+                            <defs>
+                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4A7C59"/>
+                                    <stop offset="100%" style="stop-color:#FFB000"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="font-inter font-bold text-xl">CRISPRoots AgroTwin</span>
+                    </div>
+                    <p class="text-primary-200 mb-6 max-w-md">
+                        Revolutionary AgTech platform combining quantum-enhanced gene editing, 
+                        AI-driven digital twins, and precision agriculture for sustainable farming solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-accent transition-fast">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-accent transition-fast">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-accent transition-fast">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-inter font-semibold text-lg mb-4">Platform</h3>
+                    <ul class="space-y-2">
+                        <li><a href="platform_overview_integrated_ecosystem.html" class="text-primary-200 hover:text-accent transition-fast">Overview</a></li>
+                        <li><a href="research_science_hub.html" class="text-primary-200 hover:text-accent transition-fast">Research Hub</a></li>
+                        <li><a href="marketplace_exchange_blockchain_platform.html" class="text-primary-200 hover:text-accent transition-fast">Marketplace</a></li>
+                        <li><a href="impact_analytics_sustainability.html" class="text-primary-200 hover:text-accent transition-fast">Analytics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h3 class="font-inter font-semibold text-lg mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="solutions_by_industry.html" class="text-primary-200 hover:text-accent transition-fast">Solutions</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-fast">Documentation</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-fast">Support</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-fast">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-primary-800 pt-8 flex flex-col lg:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">© 2025 CRISPRoots AgroTwin. All Rights Reserved.</p>
+                <div class="flex space-x-6 mt-4 lg:mt-0">
+                    <a href="#" class="text-primary-200 hover:text-accent text-sm transition-fast">Privacy Policy</a>
+                    <a href="#" class="text-primary-200 hover:text-accent text-sm transition-fast">Terms of Service</a>
+                    <a href="#" class="text-primary-200 hover:text-accent text-sm transition-fast">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Industry tab switching
+        document.querySelectorAll('.industry-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const industry = this.dataset.industry;
+                
+                // Update active tab
+                document.querySelectorAll('.industry-tab').forEach(t => {
+                    t.classList.remove('active', 'bg-primary', 'text-white');
+                    t.classList.add('bg-white', 'text-primary', 'border-2', 'border-primary');
+                });
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('bg-white', 'text-primary', 'border-2', 'border-primary');
+                
+                // Show corresponding content
+                document.querySelectorAll('.industry-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                document.getElementById(industry + '-content').classList.remove('hidden');
+            });
+        });
+
+        // ROI Calculator
+        function calculateROI() {
+            const farmSize = parseFloat(document.getElementById('farmSize').value) || 1000;
+            const currentYield = parseFloat(document.getElementById('currentYield').value) || 3.5;
+            const cropPrice = parseFloat(document.getElementById('cropPrice').value) || 200;
+            
+            // Calculate improvements based on platform benefits
+            const yieldIncrease = 0.42; // 42% average increase
+            const waterSavings = 0.30; // 30% water cost reduction
+            const platformCost = farmSize * 25; // $25 per acre annually
+            
+            const currentRevenue = farmSize * currentYield * cropPrice;
+            const newYield = currentYield * (1 + yieldIncrease);
+            const newRevenue = farmSize * newYield * cropPrice;
+            const additionalRevenue = newRevenue - currentRevenue;
+            
+            const waterCostSavings = farmSize * 50 * waterSavings; // Assume $50/acre water costs
+            const totalBenefits = additionalRevenue + waterCostSavings;
+            const roi = ((totalBenefits - platformCost) / platformCost) * 100;
+            
+            // Display results
+            document.getElementById('additionalRevenue').textContent = '$' + additionalRevenue.toLocaleString();
+            document.getElementById('waterSavings').textContent = '$' + waterCostSavings.toLocaleString();
+            document.getElementById('totalROI').textContent = Math.round(roi) + '%';
+            document.getElementById('roiResults').classList.remove('hidden');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <style>
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 0.6s ease-out forwards;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2D5016;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4A7C59;
+        }
+
+        /* Industry tab transitions */
+        .industry-tab {
+            transition: all 0.3s ease;
+        }
+
+        .industry-content {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+<script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
+<script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+</body>
+</html>

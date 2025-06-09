@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant & Automation Hub - CRISPRoots AgroTwin</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta name="description" content="Intelligent automation center powered by advanced AI that streamlines agricultural operations and decision-making processes.">
+    <style>
+        /* Custom AI Hub styles */
+        .ai-interface {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-interface::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #2D5016, #4A7C59, #FFB000, #2D5016);
+            z-index: -1;
+            border-radius: 20px;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .chat-container {
+            height: 400px;
+            overflow-y: auto;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            position: relative;
+            animation: messageSlide 0.3s ease-out;
+        }
+        
+        @keyframes messageSlide {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .message.user {
+            background: linear-gradient(135deg, #2D5016, #4A7C59);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .message.ai {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border: 1px solid #e2e8f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.75rem 1rem;
+            background: #f8fafc;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+            max-width: 80px;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #64748b;
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        .typing-dot:nth-child(3) { animation-delay: 0s; }
+        
+        @keyframes typingBounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        
+        .voice-control {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .voice-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2D5016, #4A7C59);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .voice-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .voice-button.listening {
+            animation: listeningPulse 1s infinite;
+        }
+        
+        @keyframes listeningPulse {
+            0% { box-shadow: 0 0 0 0 rgba(45, 80, 22, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(45, 80, 22, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(45, 80, 22, 0); }
+        }
+        
+        .workflow-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .workflow-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 176, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .workflow-card:hover::before {
+            left: 100%;
+        }
+        
+        .workflow-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(45, 80, 22, 0.15);
+        }
+        
+        .automation-status {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-paused {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .iot-widget {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #93c5fd;
+        }
+        
+        .sensor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+        
+        .sensor-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .sensor-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sensor-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .ml-insights {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #bbf7d0;
+        }
+        
+        .insight-item {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #22c55e;
+        }
+        
+        .confidence-bar {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #22c55e, #16a34a);
+            border-radius: 3px;
+            animation: fillBar 1s ease-out;
+        }
+        
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--width); }
+        }
+        
+        .ar-overlay {
+            position: relative;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #f59e0b;
+            overflow: hidden;
+        }
+        
+        .ar-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23f59e0b" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .gesture-control {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .gesture-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .gesture-btn:hover {
+            background: #f8fafc;
+            border-color: #2D5016;
+            transform: scale(1.05);
+        }
+        
+        .integration-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .integration-item {
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #f1f5f9;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .integration-item:hover {
+            background: #f8fafc;
+            border-color: #e2e8f0;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: auto;
+        }
+        
+        .status-connected { background: #22c55e; }
+        .status-connecting { background: #f59e0b; animation: pulse 2s infinite; }
+        .status-offline { background: #ef4444; }
+        
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+        
+        .lang-btn.active {
+            background: #2D5016;
+            color: white;
+            border-color: #2D5016;
+        }
+        
+        .lang-btn:hover:not(.active) {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        
+        .mobile-optimized {
+            @media (max-width: 768px) {
+                padding: 1rem;
+            }
+        }
+        
+        .offline-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #f59e0b;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .emergency-panel {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border: 2px solid #ef4444;
+            border-radius: 12px;
+            padding: 1.5rem;
+            animation: emergencyPulse 2s infinite;
+        }
+        
+        @keyframes emergencyPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .recommendation-card {
+            background: linear-gradient(135deg, white 0%, #f8fafc 100%);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .recommendation-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #2D5016, #4A7C59);
+            border-radius: 2px;
+        }
+        
+        .priority-high { border-left-color: #ef4444; }
+        .priority-medium { border-left-color: #f59e0b; }
+        .priority-low { border-left-color: #22c55e; }
+    </style>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-secondary-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 20h16M20 12v16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="16" cy="16" r="2" fill="white"/>
+                        <circle cx="24" cy="24" r="2" fill="white"/>
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2D5016"/>
+                                <stop offset="100%" style="stop-color:#4A7C59"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="font-inter font-bold text-xl text-primary">CRISPRoots AgroTwin</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="homepage_quantum_landing_experience.html" class="text-text-secondary hover:text-primary transition-fast">Home</a>
+                    <a href="platform_overview_integrated_ecosystem.html" class="text-text-secondary hover:text-primary transition-fast">Platform</a>
+                    <a href="research_science_hub.html" class="text-text-secondary hover:text-primary transition-fast">Research</a>
+                    <a href="marketplace_exchange_blockchain_platform.html" class="text-text-secondary hover:text-primary transition-fast">Marketplace</a>
+                    <a href="advanced_analytics_dashboard.html" class="text-text-secondary hover:text-primary transition-fast">Analytics</a>
+                    <a href="ai_assistant_automation_hub.html" class="text-primary font-semibold border-b-2 border-accent">AI Hub</a>
+                    <a href="solutions_by_industry.html" class="text-text-secondary hover:text-primary transition-fast">Solutions</a>
+                </div>
+
+                <!-- AI Status & Controls -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="pulse-dot" style="background: #22C55E;"></div>
+                        <span class="text-sm font-medium text-success">AI Active</span>
+                    </div>
+                    <div class="voice-control">
+                        <button class="voice-button" id="voiceToggle">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden" id="mobileMenu">
+            <div class="px-6 py-4 bg-white border-t border-secondary-200">
+                <div class="space-y-4">
+                    <a href="homepage_quantum_landing_experience.html" class="block text-text-secondary">Home</a>
+                    <a href="platform_overview_integrated_ecosystem.html" class="block text-text-secondary">Platform</a>
+                    <a href="research_science_hub.html" class="block text-text-secondary">Research</a>
+                    <a href="marketplace_exchange_blockchain_platform.html" class="block text-text-secondary">Marketplace</a>
+                    <a href="advanced_analytics_dashboard.html" class="block text-text-secondary">Analytics</a>
+                    <a href="ai_assistant_automation_hub.html" class="block text-primary font-semibold">AI Hub</a>
+                    <a href="solutions_by_industry.html" class="block text-text-secondary">Solutions</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offline Indicator -->
+    <div class="offline-indicator" id="offlineIndicator">
+        📡 Offline Mode - Limited functionality available
+    </div>
+
+    <!-- Main AI Hub Content -->
+    <main class="pt-24 px-6 lg:px-8 pb-16">
+        <div class="max-w-7xl mx-auto">
+            <!-- Hub Header -->
+            <div class="mb-8">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                    <div>
+                        <h1 class="text-4xl lg:text-5xl font-inter font-bold text-primary mb-2">
+                            AI Assistant & <span class="text-accent">Automation Hub</span>
+                        </h1>
+                        <p class="text-xl text-text-secondary max-w-3xl">
+                            Intelligent automation center powered by advanced AI that streamlines agricultural operations and decision-making processes.
+                        </p>
+                    </div>
+                    <div class="mt-6 lg:mt-0 flex items-center space-x-4">
+                        <div class="language-selector">
+                            <button class="lang-btn active" data-lang="en">🇺🇸 EN</button>
+                            <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
+                            <button class="lang-btn" data-lang="fr">🇫🇷 FR</button>
+                            <button class="lang-btn" data-lang="de">🇩🇪 DE</button>
+                            <button class="lang-btn" data-lang="zh">🇨🇳 ZH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Conversational Interface -->
+            <div class="ai-interface mb-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Chat Interface -->
+                    <div class="lg:col-span-2">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-inter font-semibold text-primary">Conversational AI Assistant</h3>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-sm text-success font-medium">🟢 Online</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-container" id="chatContainer">
+                            <div class="message ai">
+                                <div class="font-medium text-primary mb-1">AgroTwin AI</div>
+                                <div class="text-text-secondary">Hello! I'm your intelligent agricultural assistant. How can I help optimize your farm operations today?</div>
+                            </div>
+                            
+                            <div class="message user">
+                                <div class="text-white">What's the optimal irrigation schedule for my corn field in sector 7?</div>
+                            </div>
+                            
+                            <div class="message ai">
+                                <div class="font-medium text-primary mb-1">AgroTwin AI</div>
+                                <div class="text-text-secondary">Based on current soil moisture (23%), weather forecast, and your corn variety (DKC64-89), I recommend:</div>
+                                <div class="mt-2 p-3 bg-primary-50 rounded-lg">
+                                    <ul class="text-sm space-y-1">
+                                        <li>• <strong>Next irrigation:</strong> Tomorrow 6:00 AM</li>
+                                        <li>• <strong>Duration:</strong> 45 minutes</li>
+                                        <li>• <strong>Water savings:</strong> 15% vs standard schedule</li>
+                                        <li>• <strong>Expected yield impact:</strong> +8% improvement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 flex items-center space-x-4">
+                            <input type="text" 
+                                   class="input-field flex-1" 
+                                   placeholder="Ask me anything about your farm operations..."
+                                   id="chatInput">
+                            <button class="btn-primary" id="sendMessage">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                                </svg>
+                            </button>
+                            <div class="voice-control">
+                                <button class="voice-button" id="voiceInput">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div>
+                        <h4 class="text-lg font-inter font-semibold text-primary mb-4">Quick Actions</h4>
+                        <div class="space-y-3">
+                            <button class="w-full bg-white border border-secondary-200 rounded-lg p-3 text-left hover:bg-secondary-50 transition-fast">
+                                <div class="font-medium text-primary">🌾 Check Crop Status</div>
+                                <div class="text-sm text-text-secondary">Get real-time crop health reports</div>
+                            </button>
+                            <button class="w-full bg-white border border-secondary-200 rounded-lg p-3 text-left hover:bg-secondary-50 transition-fast">
+                                <div class="font-medium text-primary">💧 Optimize Irrigation</div>
+                                <div class="text-sm text-text-secondary">AI-powered water management</div>
+                            </button>
+                            <button class="w-full bg-white border border-secondary-200 rounded-lg p-3 text-left hover:bg-secondary-50 transition-fast">
+                                <div class="font-medium text-primary">🧬 Schedule Gene Editing</div>
+                                <div class="text-sm text-text-secondary">CRISPR modification planning</div>
+                            </button>
+                            <button class="w-full bg-white border border-secondary-200 rounded-lg p-3 text-left hover:bg-secondary-50 transition-fast">
+                                <div class="font-medium text-primary">📊 Generate Report</div>
+                                <div class="text-sm text-text-secondary">Custom analytics reports</div>
+                            </button>
+                            <button class="w-full bg-white border border-secondary-200 rounded-lg p-3 text-left hover:bg-secondary-50 transition-fast">
+                                <div class="font-medium text-primary">🚨 Emergency Protocols</div>
+                                <div class="text-sm text-text-secondary">Crisis management assistance</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smart Workflow Automation -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-inter font-semibold text-primary mb-6">Smart Workflow Automation</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="workflow-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div class="automation-status status-active">Active</div>
+                        </div>
+                        <h4 class="font-semibold text-primary mb-2">Crop Monitoring Schedule</h4>
+                        <p class="text-text-secondary text-sm mb-4">Automated daily health checks and anomaly detection across all sectors.</p>
+                        <div class="text-xs text-text-secondary">
+                            <div>Next run: Today 6:00 AM</div>
+                            <div>Frequency: Every 6 hours</div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div class="automation-status status-active">Active</div>
+                        </div>
+                        <h4 class="font-semibold text-secondary mb-2">Irrigation Optimization</h4>
+                        <p class="text-text-secondary text-sm mb-4">AI-driven water management based on soil moisture and weather predictions.</p>
+                        <div class="text-xs text-text-secondary">
+                            <div>Water saved: 847 gallons today</div>
+                            <div>Efficiency: +23% vs manual</div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM11 17H6l5 5v-5zM7 13l3-3 3 3M7 13l3 3 3-3"/>
+                                </svg>
+                            </div>
+                            <div class="automation-status status-pending">Pending</div>
+                        </div>
+                        <h4 class="font-semibold text-accent mb-2">Predictive Maintenance</h4>
+                        <p class="text-text-secondary text-sm mb-4">Equipment health monitoring and maintenance scheduling.</p>
+                        <div class="text-xs text-text-secondary">
+                            <div>Next maintenance: Tractor A</div>
+                            <div>Scheduled: Tomorrow 2:00 PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IoT Integration & Machine Learning -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- IoT Sensors -->
+                <div class="iot-widget">
+                    <h3 class="text-lg font-inter font-semibold text-primary mb-4">IoT Sensor Network</h3>
+                    <div class="sensor-grid">
+                        <div class="sensor-card">
+                            <div class="text-xs text-text-secondary">Soil Moisture</div>
+                            <div class="sensor-value text-primary">23%</div>
+                            <div class="text-xs text-success">Optimal</div>
+                        </div>
+                        <div class="sensor-card">
+                            <div class="text-xs text-text-secondary">Temperature</div>
+                            <div class="sensor-value text-secondary">72°F</div>
+                            <div class="text-xs text-success">Normal</div>
+                        </div>
+                        <div class="sensor-card">
+                            <div class="text-xs text-text-secondary">pH Level</div>
+                            <div class="sensor-value text-accent">6.8</div>
+                            <div class="text-xs text-warning">Monitor</div>
+                        </div>
+                        <div class="sensor-card">
+                            <div class="text-xs text-text-secondary">Humidity</div>
+                            <div class="sensor-value text-primary">65%</div>
+                            <div class="text-xs text-success">Good</div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn-secondary w-full">View All Sensors (247 active)</button>
+                    </div>
+                </div>
+
+                <!-- ML Insights -->
+                <div class="ml-insights">
+                    <h3 class="text-lg font-inter font-semibold text-primary mb-4">Machine Learning Insights</h3>
+                    <div class="space-y-3">
+                        <div class="insight-item">
+                            <div class="w-8 h-8 bg-success rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="font-medium text-sm">Yield Prediction Update</div>
+                                <div class="text-xs text-text-secondary mb-2">Corn harvest projected +18% above baseline</div>
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" style="--width: 94%;"></div>
+                                </div>
+                                <div class="text-xs text-text-secondary mt-1">Confidence: 94%</div>
+                            </div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="w-8 h-8 bg-warning rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="font-medium text-sm">Disease Risk Alert</div>
+                                <div class="text-xs text-text-secondary mb-2">Fusarium detected in neighboring farms</div>
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" style="--width: 76%; background: #f59e0b;"></div>
+                                </div>
+                                <div class="text-xs text-text-secondary mt-1">Risk Level: 76%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Augmented Reality & Voice Control -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- AR Interface -->
+                <div class="ar-overlay">
+                    <h3 class="text-lg font-inter font-semibold text-primary mb-4">Augmented Reality Field View</h3>
+                    <div class="bg-white rounded-lg p-4 mb-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium">AR Camera Active</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-success rounded-full animate-pulse"></div>
+                                <span class="text-xs text-success">Live</span>
+                            </div>
+                        </div>
+                        <div class="h-32 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-2xl mb-2">📱</div>
+                                <div class="text-sm text-text-secondary">Point camera at crops for real-time analysis</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gesture-control">
+                        <div class="gesture-btn" title="Zoom In">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                            </svg>
+                        </div>
+                        <div class="gesture-btn" title="Capture">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                            </svg>
+                        </div>
+                        <div class="gesture-btn" title="Share">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- External Integrations -->
+                <div class="integration-panel">
+                    <h3 class="text-lg font-inter font-semibold text-primary mb-4">External Integrations</h3>
+                    <div class="space-y-3">
+                        <div class="integration-item">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-sm font-bold text-blue-600">🛰️</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-sm">Satellite Imagery</div>
+                                    <div class="text-xs text-text-secondary">NASA/ESA Data Feed</div>
+                                </div>
+                            </div>
+                            <div class="status-indicator status-connected"></div>
+                        </div>
+
+                        <div class="integration-item">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-sm font-bold text-yellow-600">🌤️</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-sm">Weather Services</div>
+                                    <div class="text-xs text-text-secondary">NOAA & AccuWeather</div>
+                                </div>
+                            </div>
+                            <div class="status-indicator status-connected"></div>
+                        </div>
+
+                        <div class="integration-item">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-sm font-bold text-green-600">📈</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-sm">Market Data</div>
+                                    <div class="text-xs text-text-secondary">CME Group & ICE</div>
+                                </div>
+                            </div>
+                            <div class="status-indicator status-connecting"></div>
+                        </div>
+
+                        <div class="integration-item">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-sm font-bold text-red-600">🏭</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-sm">Equipment APIs</div>
+                                    <div class="text-xs text-text-secondary">John Deere & Case IH</div>
+                                </div>
+                            </div>
+                            <div class="status-indicator status-offline"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Recommendations -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-inter font-semibold text-primary mb-6">Personalized AI Recommendations</h3>
+                <div class="space-y-4">
+                    <div class="recommendation-card priority-high">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-error rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-error">High Priority</div>
+                                    <div class="text-sm text-text-secondary">Immediate Action Required</div>
+                                </div>
+                            </div>
+                            <span class="text-xs text-text-secondary">2 min ago</span>
+                        </div>
+                        <p class="text-text-primary mb-3">Soil pH in Sector 7B has dropped to 5.2. Immediate lime application recommended to prevent crop stress and yield loss.</p>
+                        <div class="flex space-x-3">
+                            <button class="btn-primary">Apply Lime Now</button>
+                            <button class="btn-secondary">Schedule for Tomorrow</button>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card priority-medium">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-warning rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-warning">Medium Priority</div>
+                                    <div class="text-sm text-text-secondary">Optimization Opportunity</div>
+                                </div>
+                            </div>
+                            <span class="text-xs text-text-secondary">15 min ago</span>
+                        </div>
+                        <p class="text-text-primary mb-3">Weather forecast shows 3 days of optimal conditions for CRISPR gene editing in corn. Consider scheduling modifications now.</p>
+                        <div class="flex space-x-3">
+                            <button class="btn-accent">Schedule Gene Editing</button>
+                            <button class="text-text-secondary hover:text-primary">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card priority-low">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-success rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-success">Low Priority</div>
+                                    <div class="text-sm text-text-secondary">General Improvement</div>
+                                </div>
+                            </div>
+                            <span class="text-xs text-text-secondary">1 hour ago</span>
+                        </div>
+                        <p class="text-text-primary mb-3">Your irrigation efficiency has improved by 23% this month. Consider sharing your optimization settings with neighboring farms.</p>
+                        <div class="flex space-x-3">
+                            <button class="btn-secondary">Share Settings</button>
+                            <button class="text-text-secondary hover:text-primary">View Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Automated Reporting -->
+            <div class="bg-white rounded-2xl p-6 shadow-subtle">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-inter font-semibold text-primary">Automated Report Generation</h3>
+                    <button class="btn-primary">Create Custom Report</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-primary-50 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold text-primary">Daily Operations</h4>
+                            <div class="automation-status status-active">Auto</div>
+                        </div>
+                        <p class="text-sm text-text-secondary mb-3">Comprehensive daily summary of all farm activities and metrics.</p>
+                        <div class="text-xs text-text-secondary mb-3">
+                            <div>Last sent: Today 6:00 AM</div>
+                            <div>Recipients: Farm Manager, Lead Analyst</div>
+                        </div>
+                        <button class="text-primary text-sm hover:text-accent">View Last Report →</button>
+                    </div>
+
+                    <div class="bg-secondary-50 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold text-secondary">Sustainability Metrics</h4>
+                            <div class="automation-status status-active">Weekly</div>
+                        </div>
+                        <p class="text-sm text-text-secondary mb-3">Environmental impact and sustainability performance analysis.</p>
+                        <div class="text-xs text-text-secondary mb-3">
+                            <div>Next report: Monday 9:00 AM</div>
+                            <div>Recipients: Sustainability Team</div>
+                        </div>
+                        <button class="text-secondary text-sm hover:text-accent">Configure →</button>
+                    </div>
+
+                    <div class="bg-accent-50 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold text-accent">Financial Outcomes</h4>
+                            <div class="automation-status status-active">Monthly</div>
+                        </div>
+                        <p class="text-sm text-text-secondary mb-3">ROI analysis and financial performance of agricultural investments.</p>
+                        <div class="text-xs text-text-secondary mb-3">
+                            <div>Next report: 1st of month</div>
+                            <div>Recipients: Finance Team</div>
+                        </div>
+                        <button class="text-accent text-sm hover:text-primary">Preview →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 lg:mb-0">
+                    <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" fill="url(#footerLogoGradient)" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 20h16M20 12v16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="16" cy="16" r="2" fill="white"/>
+                        <circle cx="24" cy="24" r="2" fill="white"/>
+                        <defs>
+                            <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4A7C59"/>
+                                <stop offset="100%" style="stop-color:#FFB000"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="font-inter font-bold">CRISPRoots AgroTwin AI Hub</span>
+                </div>
+                <div class="text-sm text-primary-200">
+                    © 2025 CRISPRoots AgroTwin. Intelligent agricultural automation.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for AI Hub Interactions -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Voice control functionality
+        let isListening = false;
+        let recognition;
+
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = function() {
+                isListening = true;
+                document.getElementById('voiceInput').classList.add('listening');
+                document.getElementById('voiceToggle').classList.add('listening');
+            };
+
+            recognition.onresult = function(event) {
+                const speechResult = event.results[0][0].transcript;
+                document.getElementById('chatInput').value = speechResult;
+                sendMessage(speechResult);
+            };
+
+            recognition.onend = function() {
+                isListening = false;
+                document.getElementById('voiceInput').classList.remove('listening');
+                document.getElementById('voiceToggle').classList.remove('listening');
+            };
+        }
+
+        // Voice input handlers
+        document.getElementById('voiceInput').addEventListener('click', function() {
+            if (recognition && !isListening) {
+                recognition.start();
+            }
+        });
+
+        document.getElementById('voiceToggle').addEventListener('click', function() {
+            if (recognition && !isListening) {
+                recognition.start();
+            }
+        });
+
+        // Chat functionality
+        function sendMessage(message = null) {
+            const chatInput = document.getElementById('chatInput');
+            const chatContainer = document.getElementById('chatContainer');
+            const messageText = message || chatInput.value.trim();
+            
+            if (!messageText) return;
+
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.innerHTML = `<div class="text-white">${messageText}</div>`;
+            chatContainer.appendChild(userMessage);
+
+            // Clear input
+            chatInput.value = '';
+
+            // Simulate typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'typing-indicator';
+            typingIndicator.innerHTML = `
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            `;
+            chatContainer.appendChild(typingIndicator);
+
+            // Scroll to bottom
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            // Simulate AI response
+            setTimeout(() => {
+                chatContainer.removeChild(typingIndicator);
+                
+                const aiResponse = generateAIResponse(messageText);
+                const aiMessage = document.createElement('div');
+                aiMessage.className = 'message ai';
+                aiMessage.innerHTML = `
+                    <div class="font-medium text-primary mb-1">AgroTwin AI</div>
+                    <div class="text-text-secondary">${aiResponse}</div>
+                `;
+                chatContainer.appendChild(aiMessage);
+                
+                // Scroll to bottom
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 1500);
+        }
+
+        // AI response generator
+        function generateAIResponse(userMessage) {
+            const responses = {
+                irrigation: "Based on current soil moisture levels and weather forecasts, I recommend adjusting your irrigation schedule. Would you like me to optimize it automatically?",
+                weather: "The 7-day forecast shows optimal conditions for most field operations. I've updated your workflow priorities accordingly.",
+                crop: "Your crops are showing excellent health indicators. The recent CRISPR modifications are performing 23% above projections.",
+                report: "I've generated a comprehensive analysis report. The data shows significant improvements in yield efficiency and resource conservation.",
+                emergency: "Emergency protocols have been activated. I'm coordinating with local services and have notified your emergency contacts.",
+                default: "I understand you're asking about agricultural operations. Let me analyze the current data and provide you with personalized recommendations. How can I assist you further?"
+            };
+
+            const message = userMessage.toLowerCase();
+            if (message.includes('irrigation') || message.includes('water')) return responses.irrigation;
+            if (message.includes('weather') || message.includes('forecast')) return responses.weather;
+            if (message.includes('crop') || message.includes('plant')) return responses.crop;
+            if (message.includes('report') || message.includes('analysis')) return responses.report;
+            if (message.includes('emergency') || message.includes('help') || message.includes('urgent')) return responses.emergency;
+            return responses.default;
+        }
+
+        // Send message on Enter key
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Send message button
+        document.getElementById('sendMessage').addEventListener('click', function() {
+            sendMessage();
+        });
+
+        // Language selector
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const lang = this.getAttribute('data-lang');
+                
+                // Update speech recognition language
+                if (recognition) {
+                    const langMap = {
+                        'en': 'en-US',
+                        'es': 'es-ES',
+                        'fr': 'fr-FR',
+                        'de': 'de-DE',
+                        'zh': 'zh-CN'
+                    };
+                    recognition.lang = langMap[lang] || 'en-US';
+                }
+                
+                showNotification(`Language changed to ${this.textContent}`);
+            });
+        });
+
+        // Workflow card interactions
+        document.querySelectorAll('.workflow-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('h4').textContent;
+                showNotification(`Opening ${title} configuration...`);
+            });
+        });
+
+        // Quick action buttons
+        document.querySelectorAll('.space-y-3 button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const action = this.querySelector('.font-medium').textContent;
+                showNotification(`Executing: ${action}`);
+                
+                // Add to chat as if user asked
+                const actionQueries = {
+                    '🌾 Check Crop Status': 'Show me the current crop status across all sectors',
+                    '💧 Optimize Irrigation': 'Optimize irrigation schedules for maximum efficiency',
+                    '🧬 Schedule Gene Editing': 'Schedule CRISPR gene editing for optimal timing',
+                    '📊 Generate Report': 'Generate a comprehensive performance report',
+                    '🚨 Emergency Protocols': 'Activate emergency protocols and show crisis management options'
+                };
+                
+                const query = actionQueries[action];
+                if (query) {
+                    setTimeout(() => {
+                        sendMessage(query);
+                    }, 500);
+                }
+            });
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 right-4 bg-white border border-gray-200 rounded-lg p-4 shadow-lg z-50 max-w-sm';
+            notification.innerHTML = `
+                <div class="flex items-start justify-between">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center ${
+                            type === 'success' ? 'bg-green-100 text-green-600' :
+                            type === 'warning' ? 'bg-yellow-100 text-yellow-600' :
+                            type === 'error' ? 'bg-red-100 text-red-600' :
+                            'bg-blue-100 text-blue-600'
+                        }">
+                            ${
+                                type === 'success' ? '✓' :
+                                type === 'warning' ? '⚠' :
+                                type === 'error' ? '✕' :
+                                'ℹ'
+                            }
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">${message}</div>
+                            <div class="text-xs text-gray-500 mt-1">${new Date().toLocaleTimeString()}</div>
+                        </div>
+                    </div>
+                    <button class="text-gray-400 hover:text-gray-600" onclick="this.parentElement.parentElement.remove()">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Offline detection
+        function updateOfflineStatus() {
+            const offlineIndicator = document.getElementById('offlineIndicator');
+            if (navigator.onLine) {
+                offlineIndicator.style.display = 'none';
+            } else {
+                offlineIndicator.style.display = 'block';
+            }
+        }
+
+        window.addEventListener('online', updateOfflineStatus);
+        window.addEventListener('offline', updateOfflineStatus);
+        updateOfflineStatus();
+
+        // Initialize AI Hub
+        document.addEventListener('DOMContentLoaded', function() {
+            showNotification('AI Assistant & Automation Hub initialized. All systems operational.', 'success');
+            
+            // Simulate real-time updates
+            setInterval(() => {
+                const sensors = document.querySelectorAll('.sensor-value');
+                sensors.forEach(sensor => {
+                    const currentValue = parseFloat(sensor.textContent);
+                    const variation = (Math.random() - 0.5) * 2; // ±1 variation
+                    const newValue = Math.max(0, currentValue + variation);
+                    
+                    if (sensor.textContent.includes('%')) {
+                        sensor.textContent = Math.round(newValue) + '%';
+                    } else if (sensor.textContent.includes('°F')) {
+                        sensor.textContent = Math.round(newValue) + '°F';
+                    } else {
+                        sensor.textContent = newValue.toFixed(1);
+                    }
+                });
+            }, 10000); // Update every 10 seconds
+            
+            // Simulate periodic AI insights
+            setTimeout(() => {
+                showNotification('New ML insight available: Yield prediction updated based on recent weather data.', 'info');
+            }, 30000);
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey || event.metaKey) {
+                switch(event.key) {
+                    case 'k':
+                        event.preventDefault();
+                        document.getElementById('chatInput').focus();
+                        break;
+                    case 'm':
+                        event.preventDefault();
+                        if (recognition && !isListening) {
+                            recognition.start();
+                        }
+                        break;
+                }
+            }
+        });
+    </script>
+
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
+    <script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+</body>
+</html>

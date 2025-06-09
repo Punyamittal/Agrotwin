@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace & Exchange - CRISPRoots AgroTwin</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <meta name="description" content="Blockchain-powered marketplace for genetic innovations and carbon credits. Trade genetic IP, exchange carbon credits, and secure NFT certificates with smart contracts.">
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-secondary-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 20h16M20 12v16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="16" cy="16" r="2" fill="white"/>
+                        <circle cx="24" cy="24" r="2" fill="white"/>
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2D5016"/>
+                                <stop offset="100%" style="stop-color:#4A7C59"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="font-inter font-bold text-xl text-primary">CRISPRoots AgroTwin</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="homepage_quantum_landing_experience.html" class="text-text-secondary hover:text-primary transition-fast">Home</a>
+                    <a href="platform_overview_integrated_ecosystem.html" class="text-text-secondary hover:text-primary transition-fast">Platform</a>
+                    <a href="research_science_hub.html" class="text-text-secondary hover:text-primary transition-fast">Research</a>
+                    <a href="marketplace_exchange_blockchain_platform.html" class="text-primary font-semibold border-b-2 border-accent">Marketplace</a>
+                    <a href="impact_analytics_sustainability.html" class="text-text-secondary hover:text-primary transition-fast">Analytics</a>
+                    <a href="solutions_by_industry.html" class="text-text-secondary hover:text-primary transition-fast">Solutions</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <button class="btn-primary">Connect Wallet</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden" id="mobileMenu">
+            <div class="px-6 py-4 bg-white border-t border-secondary-200">
+                <div class="space-y-4">
+                    <a href="homepage_quantum_landing_experience.html" class="block text-text-secondary">Home</a>
+                    <a href="platform_overview_integrated_ecosystem.html" class="block text-text-secondary">Platform</a>
+                    <a href="research_science_hub.html" class="block text-text-secondary">Research</a>
+                    <a href="marketplace_exchange_blockchain_platform.html" class="block text-primary font-semibold">Marketplace</a>
+                    <a href="impact_analytics_sustainability.html" class="block text-text-secondary">Analytics</a>
+                    <a href="solutions_by_industry.html" class="block text-text-secondary">Solutions</a>
+                    <button class="btn-primary w-full mt-4">Connect Wallet</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-16 bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50">
+        <div class="absolute inset-0 molecular-pattern opacity-30"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl lg:text-6xl font-inter font-bold text-primary mb-6">
+                    Blockchain <span class="text-accent">Marketplace</span>
+                </h1>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
+                    Revolutionary trading environment for genetic innovations and carbon credits. 
+                    Secure, transparent, and accessible blockchain platform for agricultural assets.
+                </p>
+                
+                <!-- Market Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-subtle">
+                        <div class="text-3xl font-inter font-bold text-primary mb-2">$2.4M</div>
+                        <div class="text-text-secondary">Total Volume</div>
+                        <div class="text-sm text-success mt-1">+24% this week</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-subtle">
+                        <div class="text-3xl font-inter font-bold text-secondary mb-2">847</div>
+                        <div class="text-text-secondary">Active Listings</div>
+                        <div class="text-sm text-success mt-1">+12% this week</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-subtle">
+                        <div class="text-3xl font-inter font-bold text-accent mb-2">1,234</div>
+                        <div class="text-text-secondary">Verified Traders</div>
+                        <div class="text-sm text-success mt-1">+8% this week</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Navigation Tabs -->
+    <section class="py-8 bg-white border-b border-secondary-200">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button class="market-tab active" data-tab="genetic-ip">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                    Genetic IP Trading
+                </button>
+                <button class="market-tab" data-tab="carbon-credits">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                    </svg>
+                    Carbon Credits
+                </button>
+                <button class="market-tab" data-tab="nft-certificates">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                    </svg>
+                    NFT Certificates
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Genetic IP Trading Section -->
+    <section id="genetic-ip" class="tab-content py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Filters and Search -->
+            <div class="bg-white rounded-xl p-6 shadow-subtle mb-8">
+                <div class="flex flex-col lg:flex-row gap-4 items-center justify-between mb-6">
+                    <h2 class="text-2xl font-inter font-bold text-primary">Genetic IP Trading</h2>
+                    <div class="flex gap-4">
+                        <div class="relative">
+                            <input type="text" placeholder="Search genetic traits..." class="input-field pl-10 w-64">
+                            <svg class="w-5 h-5 text-text-secondary absolute left-3 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
+                        <button class="btn-secondary">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.207A1 1 0 013 6.5V4z"/>
+                            </svg>
+                            Filters
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filter Options -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <select class="input-field">
+                        <option>All Crop Types</option>
+                        <option>Corn</option>
+                        <option>Wheat</option>
+                        <option>Soybeans</option>
+                        <option>Rice</option>
+                    </select>
+                    <select class="input-field">
+                        <option>All Traits</option>
+                        <option>Drought Resistance</option>
+                        <option>Pest Resistance</option>
+                        <option>Yield Enhancement</option>
+                        <option>Nutritional Improvement</option>
+                    </select>
+                    <select class="input-field">
+                        <option>All Regions</option>
+                        <option>North America</option>
+                        <option>Europe</option>
+                        <option>Asia</option>
+                        <option>South America</option>
+                    </select>
+                    <select class="input-field">
+                        <option>All Status</option>
+                        <option>Approved</option>
+                        <option>Pending Review</option>
+                        <option>Field Testing</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Genetic IP Listings -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                <!-- Genetic Asset Card 1 -->
+                <div class="card group hover:scale-105 transition-complex">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-inter font-semibold text-primary">DroughtGuard Pro</h3>
+                                <p class="text-sm text-text-secondary">Corn - Drought Resistance</p>
+                            </div>
+                        </div>
+                        <span class="bg-success-100 text-success-700 px-2 py-1 rounded-full text-xs font-medium">Approved</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=400&auto=format&fit=crop" 
+                             alt="Corn field with drought resistance" 
+                             class="w-full h-32 object-cover rounded-lg"
+                             onerror="this.src='https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&dpr=2'; this.onerror=null;">
+                    </div>
+
+                    <div class="space-y-3 mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Yield Improvement:</span>
+                            <span class="font-medium text-success">+23%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Water Efficiency:</span>
+                            <span class="font-medium text-success">+35%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">License Price:</span>
+                            <span class="font-inter font-bold text-primary">$12,500</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button class="btn-primary flex-1">License Now</button>
+                        <button class="bg-secondary-100 text-secondary px-4 py-2 rounded-lg hover:bg-secondary-200 transition-fast">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Genetic Asset Card 2 -->
+                <div class="card group hover:scale-105 transition-complex">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-inter font-semibold text-primary">NutriBoost Wheat</h3>
+                                <p class="text-sm text-text-secondary">Wheat - Nutritional Enhancement</p>
+                            </div>
+                        </div>
+                        <span class="bg-warning-100 text-warning-700 px-2 py-1 rounded-full text-xs font-medium">Field Testing</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=400&auto=format&fit=crop" 
+                             alt="Enhanced wheat field" 
+                             class="w-full h-32 object-cover rounded-lg"
+                             onerror="this.src='https://images.pixabay.com/photo/2016/08/10/17/12/wheat-1584537_1280.jpg'; this.onerror=null;">
+                    </div>
+
+                    <div class="space-y-3 mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Protein Content:</span>
+                            <span class="font-medium text-success">+18%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Vitamin B:</span>
+                            <span class="font-medium text-success">+42%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">License Price:</span>
+                            <span class="font-inter font-bold text-primary">$8,750</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button class="btn-primary flex-1">License Now</button>
+                        <button class="bg-secondary-100 text-secondary px-4 py-2 rounded-lg hover:bg-secondary-200 transition-fast">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Genetic Asset Card 3 -->
+                <div class="card group hover:scale-105 transition-complex">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-inter font-semibold text-primary">PestShield Soy</h3>
+                                <p class="text-sm text-text-secondary">Soybeans - Pest Resistance</p>
+                            </div>
+                        </div>
+                        <span class="bg-success-100 text-success-700 px-2 py-1 rounded-full text-xs font-medium">Approved</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=400&auto=format&fit=crop" 
+                             alt="Soybean field with pest resistance" 
+                             class="w-full h-32 object-cover rounded-lg"
+                             onerror="this.src='https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&dpr=2'; this.onerror=null;">
+                    </div>
+
+                    <div class="space-y-3 mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Pest Reduction:</span>
+                            <span class="font-medium text-success">-89%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Yield Protection:</span>
+                            <span class="font-medium text-success">+15%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">License Price:</span>
+                            <span class="font-inter font-bold text-primary">$9,200</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button class="btn-primary flex-1">License Now</button>
+                        <button class="bg-secondary-100 text-secondary px-4 py-2 rounded-lg hover:bg-secondary-200 transition-fast">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Credits Section -->
+    <section id="carbon-credits" class="tab-content py-16 bg-white hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Market Overview -->
+                <div class="lg:col-span-2">
+                    <div class="card mb-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-2xl font-inter font-bold text-primary">Carbon Credit Exchange</h2>
+                            <div class="flex items-center space-x-4">
+                                <span class="text-sm text-text-secondary">Real-time pricing</span>
+                                <div class="w-3 h-3 bg-success rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+
+                        <!-- Price Chart Placeholder -->
+                        <div class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-xl p-8 h-64 flex items-center justify-center mb-6">
+                            <div class="text-center">
+                                <svg class="w-16 h-16 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2-2z"/>
+                                </svg>
+                                <p class="text-text-secondary font-medium">Interactive Price Chart</p>
+                                <p class="text-sm text-text-secondary mt-2">Real-time carbon credit pricing</p>
+                            </div>
+                        </div>
+
+                        <!-- Market Stats -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-inter font-bold text-primary">$45.20</div>
+                                <div class="text-sm text-text-secondary">Current Price</div>
+                                <div class="text-xs text-success">+2.4%</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-inter font-bold text-secondary">12,847</div>
+                                <div class="text-sm text-text-secondary">Volume (24h)</div>
+                                <div class="text-xs text-success">+8.1%</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-inter font-bold text-accent">$52.10</div>
+                                <div class="text-sm text-text-secondary">24h High</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-inter font-bold text-text-secondary">$43.80</div>
+                                <div class="text-sm text-text-secondary">24h Low</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Available Credits -->
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-primary mb-4">Available Carbon Credits</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-primary">Regenerative Agriculture - Batch #RA2024-001</h4>
+                                        <p class="text-sm text-text-secondary">Verified by Gold Standard • 1,000 tons CO₂</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-inter font-bold text-primary">$45.20/ton</div>
+                                    <button class="btn-primary mt-2">Buy Credits</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-primary">Soil Carbon Sequestration - Batch #SCS2024-002</h4>
+                                        <p class="text-sm text-text-secondary">Verified by Verra • 750 tons CO₂</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-inter font-bold text-primary">$47.80/ton</div>
+                                    <button class="btn-primary mt-2">Buy Credits</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trading Panel -->
+                <div class="space-y-6">
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-primary mb-4">Quick Trade</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Credit Type</label>
+                                <select class="input-field">
+                                    <option>Regenerative Agriculture</option>
+                                    <option>Soil Sequestration</option>
+                                    <option>Reforestation</option>
+                                    <option>Renewable Energy</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Quantity (tons CO₂)</label>
+                                <input type="number" class="input-field" placeholder="100" min="1">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Price per ton</label>
+                                <input type="number" class="input-field" placeholder="45.20" step="0.01">
+                            </div>
+                            <div class="bg-surface rounded-lg p-4">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-text-secondary">Total Cost:</span>
+                                    <span class="font-inter font-bold text-primary">$4,520.00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Platform Fee:</span>
+                                    <span class="text-text-secondary">$22.60</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary w-full">Place Order</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="text-xl font-inter font-semibold text-primary mb-4">Your Portfolio</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Total Credits:</span>
+                                <span class="font-medium">2,450 tons CO₂</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Portfolio Value:</span>
+                                <span class="font-inter font-bold text-primary">$110,740</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">24h Change:</span>
+                                <span class="text-success">+$2,847 (+2.6%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NFT Certificates Section -->
+    <section id="nft-certificates" class="tab-content py-16 bg-surface hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-inter font-bold text-primary mb-4">NFT Certificates</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Immutable proof of genetic innovations, research contributions, and sustainability achievements
+                </p>
+            </div>
+
+            <!-- NFT Categories -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="card text-center group hover:scale-105 transition-complex">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-inter font-semibold text-primary mb-2">Innovation Certificates</h3>
+                    <p class="text-text-secondary mb-4">Genetic breakthroughs and research milestones</p>
+                    <div class="text-2xl font-inter font-bold text-accent">247</div>
+                    <div class="text-sm text-text-secondary">Available</div>
+                </div>
+
+                <div class="card text-center group hover:scale-105 transition-complex">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-inter font-semibold text-secondary mb-2">Sustainability Awards</h3>
+                    <p class="text-text-secondary mb-4">Environmental impact achievements</p>
+                    <div class="text-2xl font-inter font-bold text-accent">89</div>
+                    <div class="text-sm text-text-secondary">Available</div>
+                </div>
+
+                <div class="card text-center group hover:scale-105 transition-complex">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-inter font-semibold text-accent mb-2">Research Contributions</h3>
+                    <p class="text-text-secondary mb-4">Scientific publications and collaborations</p>
+                    <div class="text-2xl font-inter font-bold text-accent">156</div>
+                    <div class="text-sm text-text-secondary">Available</div>
+                </div>
+            </div>
+
+            <!-- Featured NFTs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- NFT Card 1 -->
+                <div class="card group hover:scale-105 transition-complex">
+                    <div class="bg-gradient-to-br from-primary-100 to-secondary-100 rounded-lg p-6 mb-4">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                            <h3 class="font-inter font-bold text-primary text-lg">Quantum Gene Edit #001</h3>
+                            <p class="text-text-secondary text-sm">First successful quantum-enhanced CRISPR modification</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Creator:</span>
+                            <span class="font-medium">Dr. Sarah Chen</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Date:</span>
+                            <span class="font-medium">March 15, 2024</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Current Bid:</span>
+                            <span class="font-inter font-bold text-primary">2.5 ETH</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full mt-4">Place Bid</button>
+                </div>
+
+                <!-- NFT Card 2 -->
+                <div class="card group hover:scale-105 transition-complex">
+                    <div class="bg-gradient-to-br from-secondary-100 to-accent-100 rounded-lg p-6 mb-4">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 text-secondary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945"/>
+                            </svg>
+                            <h3 class="font-inter font-bold text-primary text-lg">Carbon Hero #042</h3>
+                            <p class="text-text-secondary text-sm">1M tons CO₂ sequestration milestone</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Farm:</span>
+                            <span class="font-medium">GreenFields Co.</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Achievement:</span>
+                            <span class="font-medium">Feb 28, 2024</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Current Bid:</span>
+                            <span class="font-inter font-bold text-primary">1.8 ETH</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full mt-4">Place Bid</button>
+                </div>
+
+                <!-- NFT Card 3 -->
+                <div class="card group hover:scale-105 transition-complex">
+                    <div class="bg-gradient-to-br from-accent-100 to-primary-100 rounded-lg p-6 mb-4">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 text-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                            <h3 class="font-inter font-bold text-primary text-lg">Research Pioneer #127</h3>
+                            <p class="text-text-secondary text-sm">100 peer-reviewed publications milestone</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Researcher:</span>
+                            <span class="font-medium">Dr. Michael Rodriguez</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Milestone:</span>
+                            <span class="font-medium">Jan 10, 2024</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Current Bid:</span>
+                            <span class="font-inter font-bold text-primary">3.2 ETH</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full mt-4">Place Bid</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Trust Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-inter font-bold text-primary mb-4">
+                    Security & Trust
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Advanced security features and reputation systems ensure safe, transparent trading
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-inter font-semibold text-primary mb-2">Multi-Signature Wallets</h3>
+                    <p class="text-text-secondary">Enhanced security with multiple approval requirements</p>
+                </div>
+
+                <div class="card text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-inter font-semibold text-secondary mb-2">Smart Contracts</h3>
+                    <p class="text-text-secondary">Automated compliance and transparent execution</p>
+                </div>
+
+                <div class="card text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-inter font-semibold text-accent mb-2">Reputation System</h3>
+                    <p class="text-text-secondary">Trust scores based on verified transactions</p>
+                </div>
+
+                <div class="card text-center">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-inter font-semibold text-success mb-2">Audit Trails</h3>
+                    <p class="text-text-secondary">Complete transaction history and compliance records</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" fill="url(#footerLogoGradient)" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 20h16M20 12v16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="16" cy="16" r="2" fill="white"/>
+                            <circle cx="24" cy="24" r="2" fill="white"/>
+                            <defs>
+                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4A7C59"/>
+                                    <stop offset="100%" style="stop-color:#FFB000"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="font-inter font-bold text-xl">CRISPRoots AgroTwin</span>
+                    </div>
+                    <p class="text-primary-200 mb-6 max-w-md">
+                        Revolutionary AgTech platform combining quantum-enhanced gene editing, 
+                        AI-driven digital twins, and precision agriculture for sustainable farming solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-accent transition-fast">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-accent transition-fast">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center hover:bg-accent transition-fast">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-inter font-semibold text-lg mb-4">Platform</h3>
+                    <ul class="space-y-2">
+                        <li><a href="platform_overview_integrated_ecosystem.html" class="text-primary-200 hover:text-accent transition-fast">Overview</a></li>
+                        <li><a href="research_science_hub.html" class="text-primary-200 hover:text-accent transition-fast">Research Hub</a></li>
+                        <li><a href="marketplace_exchange_blockchain_platform.html" class="text-primary-200 hover:text-accent transition-fast">Marketplace</a></li>
+                        <li><a href="impact_analytics_sustainability.html" class="text-primary-200 hover:text-accent transition-fast">Analytics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h3 class="font-inter font-semibold text-lg mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="solutions_by_industry.html" class="text-primary-200 hover:text-accent transition-fast">Solutions</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-fast">Documentation</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-fast">Support</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-accent transition-fast">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-primary-800 pt-8 flex flex-col lg:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">© 2025 CRISPRoots AgroTwin. All Rights Reserved.</p>
+                <div class="flex space-x-6 mt-4 lg:mt-0">
+                    <a href="#" class="text-primary-200 hover:text-accent text-sm transition-fast">Privacy Policy</a>
+                    <a href="#" class="text-primary-200 hover:text-accent text-sm transition-fast">Terms of Service</a>
+                    <a href="#" class="text-primary-200 hover:text-accent text-sm transition-fast">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tab switching functionality
+        const marketTabs = document.querySelectorAll('.market-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        marketTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs
+                marketTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all tab contents
+                tabContents.forEach(content => content.classList.add('hidden'));
+                // Show target tab content
+                document.getElementById(targetTab).classList.remove('hidden');
+            });
+        });
+
+        // Real-time price updates simulation
+        function updatePrices() {
+            const priceElements = document.querySelectorAll('[data-price]');
+            priceElements.forEach(element => {
+                const currentPrice = parseFloat(element.textContent.replace('$', '').replace(',', ''));
+                const change = (Math.random() - 0.5) * 2; // Random change between -1 and 1
+                const newPrice = Math.max(0, currentPrice + change);
+                element.textContent = '$' + newPrice.toFixed(2);
+            });
+        }
+
+        // Simulate real-time updates every 5 seconds
+        setInterval(updatePrices, 5000);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <style>
+        .market-tab {
+            @apply flex items-center px-6 py-3 bg-surface text-text-secondary rounded-lg font-medium transition-all duration-300 hover:bg-primary-100 hover:text-primary;
+        }
+
+        .market-tab.active {
+            @apply bg-primary text-white;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 0.6s ease-out forwards;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2D5016;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4A7C59;
+        }
+    </style>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+<script id="dhws-elementInspector" src="../public/dhws-web-inspector.js"></script>
+<script id="dhws-errorTracker" src="../public/dhws-error-tracker.js"></script>
+</body>
+</html>
